@@ -5,53 +5,55 @@ import { AppData, Room, Zone, Item, Task } from "@/types"
 
 const SEED: AppData = {
   rooms: [
-    { id: "r1", name: "Salon", icon: "🛋️", color: "bg-blue-50 border-blue-200" },
-    { id: "r2", name: "Cuisine", icon: "🍳", color: "bg-orange-50 border-orange-200" },
-    { id: "r3", name: "Chambre", icon: "🛏️", color: "bg-purple-50 border-purple-200" },
-    { id: "r4", name: "Salle de bain", icon: "🚿", color: "bg-cyan-50 border-cyan-200" },
-    { id: "r5", name: "Entrée", icon: "🚪", color: "bg-green-50 border-green-200" },
-    { id: "r6", name: "Bureau", icon: "💻", color: "bg-yellow-50 border-yellow-200" },
+    { id: "r1", name: "Salon",        icon: "🛋️", color: "bg-blue-50"   },
+    { id: "r2", name: "Cuisine",      icon: "🍳", color: "bg-orange-50" },
+    { id: "r3", name: "Chambre",      icon: "🛏️", color: "bg-violet-50" },
+    { id: "r4", name: "Salle de bain",icon: "🚿", color: "bg-cyan-50"   },
+    { id: "r5", name: "Entrée",       icon: "🚪", color: "bg-emerald-50"},
+    { id: "r6", name: "Bureau",       icon: "💻", color: "bg-yellow-50" },
   ],
   zones: [
-    { id: "z1", room_id: "r1", name: "Meuble TV" },
-    { id: "z2", room_id: "r1", name: "Bibliothèque" },
-    { id: "z3", room_id: "r2", name: "Placard haut" },
-    { id: "z4", room_id: "r2", name: "Tiroir couverts" },
-    { id: "z5", room_id: "r3", name: "Armoire" },
-    { id: "z6", room_id: "r3", name: "Tiroir de nuit" },
-    { id: "z7", room_id: "r4", name: "Armoire pharmacie" },
-    { id: "z8", room_id: "r5", name: "Placard entrée" },
-    { id: "z9", room_id: "r6", name: "Bureau" },
-    { id: "z10", room_id: "r6", name: "Tiroir du bas" },
+    { id: "z1",  room_id: "r1", name: "Meuble TV"        },
+    { id: "z2",  room_id: "r1", name: "Bibliothèque"     },
+    { id: "z3",  room_id: "r2", name: "Placard haut"     },
+    { id: "z4",  room_id: "r2", name: "Tiroir couverts"  },
+    { id: "z5",  room_id: "r3", name: "Armoire"          },
+    { id: "z6",  room_id: "r3", name: "Tiroir de nuit"   },
+    { id: "z7",  room_id: "r4", name: "Armoire pharmacie"},
+    { id: "z8",  room_id: "r5", name: "Placard entrée"   },
+    { id: "z9",  room_id: "r6", name: "Bureau"           },
+    { id: "z10", room_id: "r6", name: "Tiroir du bas"    },
   ],
   items: [
-    { id: "i1", zone_id: "z6", name: "Passeport", tags: ["documents", "important"], created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
-    { id: "i2", zone_id: "z8", name: "Tournevis", tags: ["outils"], created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
-    { id: "i3", zone_id: "z3", name: "Aspirine", tags: ["santé"], created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
-    { id: "i4", zone_id: "z9", name: "Chargeur MacBook", tags: ["électronique"], created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
-    { id: "i5", zone_id: "z2", name: "Livre Atomic Habits", tags: ["livres"], created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+    { id: "i1", zone_id: "z6", name: "Passeport",        tags: ["documents","important"],  description: "", created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+    { id: "i2", zone_id: "z8", name: "Tournevis",        tags: ["outils"],                description: "", created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+    { id: "i3", zone_id: "z7", name: "Aspirine",         tags: ["santé"],                 description: "", created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+    { id: "i4", zone_id: "z9", name: "Chargeur MacBook", tags: ["électronique"],          description: "", created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+    { id: "i5", zone_id: "z2", name: "Atomic Habits",    tags: ["livres"],                description: "James Clear", created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
   ],
   tasks: [
-    { id: "t1", room_id: "r1", name: "Passer l'aspirateur", frequency_days: 7, last_done_at: new Date(Date.now() - 9 * 86400000).toISOString() },
-    { id: "t2", room_id: "r4", name: "Nettoyer la douche", frequency_days: 7, last_done_at: new Date(Date.now() - 5 * 86400000).toISOString() },
-    { id: "t3", room_id: "r2", name: "Nettoyer le four", frequency_days: 30, last_done_at: new Date(Date.now() - 35 * 86400000).toISOString() },
-    { id: "t4", room_id: "r1", name: "Dépoussiérer les meubles", frequency_days: 14, last_done_at: new Date(Date.now() - 3 * 86400000).toISOString() },
-    { id: "t5", room_id: "r4", name: "Nettoyer les toilettes", frequency_days: 5, last_done_at: new Date(Date.now() - 6 * 86400000).toISOString() },
-    { id: "t6", room_id: "r2", name: "Vider le frigo / vieux aliments", frequency_days: 7, last_done_at: null },
+    { id: "t1", room_id: "r1", name: "Passer l'aspirateur",         frequency_days: 7,  last_done_at: new Date(Date.now() - 9  * 86400000).toISOString() },
+    { id: "t2", room_id: "r4", name: "Nettoyer la douche",          frequency_days: 7,  last_done_at: new Date(Date.now() - 5  * 86400000).toISOString() },
+    { id: "t3", room_id: "r2", name: "Nettoyer le four",            frequency_days: 30, last_done_at: new Date(Date.now() - 35 * 86400000).toISOString() },
+    { id: "t4", room_id: "r1", name: "Dépoussiérer les meubles",    frequency_days: 14, last_done_at: new Date(Date.now() - 3  * 86400000).toISOString() },
+    { id: "t5", room_id: "r4", name: "Nettoyer les toilettes",      frequency_days: 5,  last_done_at: new Date(Date.now() - 6  * 86400000).toISOString() },
+    { id: "t6", room_id: "r2", name: "Vider le frigo",              frequency_days: 7,  last_done_at: null },
   ],
 }
 
 type StoreContextType = {
   data: AppData
-  addRoom: (room: Omit<Room, "id">) => void
+  addRoom:    (room: Omit<Room, "id">) => void
   updateRoom: (id: string, patch: Partial<Room>) => void
   deleteRoom: (id: string) => void
-  addZone: (zone: Omit<Zone, "id">) => void
+  addZone:    (zone: Omit<Zone, "id">) => void
+  updateZone: (id: string, patch: Partial<Zone>) => void
   deleteZone: (id: string) => void
-  addItem: (item: Omit<Item, "id" | "created_at" | "updated_at">) => void
+  addItem:    (item: Omit<Item, "id" | "created_at" | "updated_at">) => void
   updateItem: (id: string, patch: Partial<Item>) => void
   deleteItem: (id: string) => void
-  addTask: (task: Omit<Task, "id">) => void
+  addTask:    (task: Omit<Task, "id">) => void
+  updateTask: (id: string, patch: Partial<Task>) => void
   markTaskDone: (id: string) => void
   deleteTask: (id: string) => void
 }
@@ -63,20 +65,22 @@ function uid() {
 }
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<AppData>(SEED)
+  const [data, setData]   = useState<AppData>(SEED)
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem("homebase-data")
-    if (saved) {
-      try { setData(JSON.parse(saved)) } catch {}
-    }
+    try {
+      const saved = localStorage.getItem("homebase-data")
+      if (saved) setData(JSON.parse(saved))
+    } catch {}
+    setReady(true)
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("homebase-data", JSON.stringify(data))
-  }, [data])
+    if (ready) localStorage.setItem("homebase-data", JSON.stringify(data))
+  }, [data, ready])
 
-  const addRoom = (room: Omit<Room, "id">) =>
+  const addRoom    = (room: Omit<Room, "id">) =>
     setData(d => ({ ...d, rooms: [...d.rooms, { ...room, id: uid() }] }))
 
   const updateRoom = (id: string, patch: Partial<Room>) =>
@@ -87,11 +91,18 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       ...d,
       rooms: d.rooms.filter(r => r.id !== id),
       zones: d.zones.filter(z => z.room_id !== id),
+      items: d.items.map(i => {
+        const zone = d.zones.find(z => z.id === i.zone_id)
+        return zone?.room_id === id ? { ...i, zone_id: null } : i
+      }),
       tasks: d.tasks.filter(t => t.room_id !== id),
     }))
 
-  const addZone = (zone: Omit<Zone, "id">) =>
+  const addZone    = (zone: Omit<Zone, "id">) =>
     setData(d => ({ ...d, zones: [...d.zones, { ...zone, id: uid() }] }))
+
+  const updateZone = (id: string, patch: Partial<Zone>) =>
+    setData(d => ({ ...d, zones: d.zones.map(z => z.id === id ? { ...z, ...patch } : z) }))
 
   const deleteZone = (id: string) =>
     setData(d => ({
@@ -100,7 +111,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       items: d.items.map(i => i.zone_id === id ? { ...i, zone_id: null } : i),
     }))
 
-  const addItem = (item: Omit<Item, "id" | "created_at" | "updated_at">) => {
+  const addItem    = (item: Omit<Item, "id" | "created_at" | "updated_at">) => {
     const now = new Date().toISOString()
     setData(d => ({ ...d, items: [...d.items, { ...item, id: uid(), created_at: now, updated_at: now }] }))
   }
@@ -114,8 +125,11 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const deleteItem = (id: string) =>
     setData(d => ({ ...d, items: d.items.filter(i => i.id !== id) }))
 
-  const addTask = (task: Omit<Task, "id">) =>
+  const addTask    = (task: Omit<Task, "id">) =>
     setData(d => ({ ...d, tasks: [...d.tasks, { ...task, id: uid() }] }))
+
+  const updateTask = (id: string, patch: Partial<Task>) =>
+    setData(d => ({ ...d, tasks: d.tasks.map(t => t.id === id ? { ...t, ...patch } : t) }))
 
   const markTaskDone = (id: string) =>
     setData(d => ({
@@ -127,7 +141,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     setData(d => ({ ...d, tasks: d.tasks.filter(t => t.id !== id) }))
 
   return (
-    <StoreContext.Provider value={{ data, addRoom, updateRoom, deleteRoom, addZone, deleteZone, addItem, updateItem, deleteItem, addTask, markTaskDone, deleteTask }}>
+    <StoreContext.Provider value={{
+      data, addRoom, updateRoom, deleteRoom,
+      addZone, updateZone, deleteZone,
+      addItem, updateItem, deleteItem,
+      addTask, updateTask, markTaskDone, deleteTask,
+    }}>
       {children}
     </StoreContext.Provider>
   )
@@ -141,6 +160,17 @@ export function useStore() {
 
 export function daysOverdue(task: Task): number {
   if (!task.last_done_at) return task.frequency_days
-  const diff = (Date.now() - new Date(task.last_done_at).getTime()) / 86400000
-  return Math.floor(diff - task.frequency_days)
+  const elapsed = (Date.now() - new Date(task.last_done_at).getTime()) / 86400000
+  return Math.floor(elapsed - task.frequency_days)
+}
+
+export function nextDueLabel(task: Task): string {
+  if (!task.last_done_at) return "Jamais fait"
+  const overdue = daysOverdue(task)
+  if (overdue > 0) return `${overdue}j de retard`
+  const daysLeft = task.frequency_days - Math.floor(
+    (Date.now() - new Date(task.last_done_at).getTime()) / 86400000
+  )
+  if (daysLeft <= 0) return "Aujourd'hui"
+  return `Dans ${daysLeft}j`
 }
