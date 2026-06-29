@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className={`${geist.className} bg-gray-50 min-h-screen`}>
+      <body className={`${geist.className} bg-slate-100 min-h-screen`}>
         <StoreProvider>
-          <div className="max-w-md mx-auto min-h-screen flex flex-col bg-white shadow-sm">
-            <main className="flex-1 overflow-auto pb-20">{children}</main>
+          <div className="max-w-md mx-auto min-h-screen flex flex-col bg-background shadow-xl">
+            <main className="flex-1 overflow-y-auto pb-24">{children}</main>
             <Nav />
           </div>
         </StoreProvider>
