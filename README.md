@@ -41,6 +41,95 @@ HomeBase is a mobile-first PWA built for households that want to keep track of w
 
 ---
 
+## Architecture
+
+### Application layers
+
+```mermaid
+graph TD
+    subgraph Browser["Browser (PWA)"]
+        UI["UI Layer\nNext.js 15 · App Router\nReact 19 · Tailwind CSS v4"]
+        STATE["State Layer\nReact Context\nsrc/lib/store.tsx"]
+        STORAGE["Persistence\nlocalStorage\nhomebase-data"]
+    end
+
+    subgraph Future["Future — Supabase (optional)"]
+        AUTH["Auth\nSupabase Auth"]
+        DB["Database\nPostgres via Supabase"]
+        REALTIME["Realtime\nWebSocket sync"]
+    end
+
+    UI -->|"reads / dispatches"| STATE
+    STATE -->|"serialises JSON"| STORAGE
+    STORAGE -->|"hydrates on mount"| STATE
+
+    STATE -.->|"replace localStorage calls"| DB
+    DB -.-> REALTIME
+    REALTIME -.-> STATE
+```
+
+### Data model
+
+```mermaid
+erDiagram
+    ROOM {
+        string id PK
+        string name
+        string icon
+        string color
+    }
+    ZONE {
+        string id PK
+        string room_id FK
+        string name
+    }
+    ITEM {
+        string id PK
+        string zone_id FK "nullable"
+        string name
+        string description
+        string[] tags
+        datetime created_at
+        datetime updated_at
+    }
+    TASK {
+        string id PK
+        string room_id FK
+        string name
+        int frequency_days
+        datetime last_done_at "nullable"
+    }
+
+    ROOM ||--o{ ZONE  : "contains"
+    ROOM ||--o{ TASK  : "has"
+    ZONE ||--o{ ITEM  : "stores"
+```
+
+### Navigation flow
+
+```mermaid
+flowchart LR
+    HOME["🏠 Dashboard\n/"]
+    INV["🗃️ Inventory\n/inventaire"]
+    MEN["🧹 Cleaning\n/menage"]
+
+    HOME -->|"search"| HOME
+    HOME -->|"tap card"| INV
+    HOME -->|"tap card"| MEN
+
+    INV -->|"tap room"| ZONES["Zone list"]
+    ZONES -->|"tap zone"| ITEMS["Item list"]
+    ITEMS -->|"tap item"| EDIT_ITEM["Edit sheet ↑"]
+    ZONES -->|"tap pencil"| EDIT_ZONE["Rename sheet ↑"]
+    INV & ZONES & ITEMS -->|"+ button"| ADD["Add sheet ↑"]
+
+    MEN -->|"tap pencil"| EDIT_TASK["Edit sheet ↑"]
+    MEN -->|"tap circle"| DONE["Mark done ✓ + toast"]
+    MEN -->|"+ button"| ADD_TASK["Add sheet ↑"]
+```
+
+---
+
 ## Tech Stack
 
 | Layer        | Choice                        | Why                                               |
