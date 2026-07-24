@@ -2,7 +2,7 @@
 
 > **Organize your apartment. Find everything instantly. Stay on top of cleaning.**
 
-HomeBase is a mobile-first PWA built for households that want to keep track of where things are stored and maintain a recurring cleaning schedule — all in one elegant, offline-capable app.
+HomeBase is a mobile-first PWA built for households that want to keep track of where things are stored and maintain a recurring cleaning schedule, all in one elegant, offline-capable app.
 
 **Live demo:** [homebase-beryl.vercel.app](https://homebase-beryl.vercel.app)
 
@@ -22,7 +22,7 @@ HomeBase is a mobile-first PWA built for households that want to keep track of w
 ### Global Search
 - Search across all items by name, description, or tags
 - Results show the full path: `🛏️ Bedroom › Nightstand`
-- Available from the home screen — one tap, two keystrokes
+- Available from the home screen: one tap, two keystrokes
 
 ### Cleaning Schedule
 - Recurring tasks with configurable frequency (daily → monthly)
@@ -305,4 +305,4 @@ npx vercel --prod
 
 ## License
 
-MIT — © 2026 [Riadh MNASRI](https://github.com/riadh-mnasri) · [WeHighTech](https://wehightech.com)
+MIT, © 2026 [Riadh MNASRI](https://github.com/riadh-mnasri) · [WeHighTech](https://wehightech.com)
