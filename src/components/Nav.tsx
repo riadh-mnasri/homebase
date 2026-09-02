@@ -49,7 +49,7 @@ export default function Nav() {
           })}
         </div>
         <p className="text-center text-[9px] font-medium text-slate-300 pb-2.5 mt-0.5 tracking-widest safe-pb">
-          © 2026 Riadh MNASRI · WeHighTech
+          © 2026 <a href="https://riadh-mnasri.pro" className="hover:underline">Riadh MNASRI</a> · WeHighTech
         </p>
       </div>
     </nav>
